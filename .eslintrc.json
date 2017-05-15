@@ -1,0 +1,34 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "allowImportExportEverywhere": true,
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true
+      }
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".android.js", ".ios.js"]
+        }
+      }
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y"
+    ],
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/forbid-prop-types": [1, { "forbid": ["array"] }]
+    }
+}
