@@ -1,15 +1,18 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import ReduxThunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-logger';
 import rootReducer from '../reducers/rootReducer';
+import rootSaga from '../sagas'
 import App from '../pages/App';
 
+const sagaMiddleware = createSagaMiddleware()
+// initial store setup
 function configureStore(initialState){
   const enhancer = compose(
     applyMiddleware(
-      ReduxThunk,
+      sagaMiddleware,
       logger
     )
   );
@@ -17,7 +20,7 @@ function configureStore(initialState){
 }
 
 const store = configureStore({});
-
+sagaMiddleware.run(rootSaga)
 const AppContainer = () => (
   <Provider store={store}>
     <App />
