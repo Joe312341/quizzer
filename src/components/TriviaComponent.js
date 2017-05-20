@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
 // utilities
 import { shuffleArray } from '../utilities/arrayHelpers';
 
@@ -63,6 +63,11 @@ class TriviaComponent extends React.Component {
           <View>
             <Text>Done!</Text>
             <Text>{`Your score was ${this.props.playerScore}`}</Text>
+            <Button
+              onPress={() => this.props.actions.restartTrivia()}
+              title="Again!"
+              color="#841584"
+            />
           </View>
         :
           <View>

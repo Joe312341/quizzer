@@ -27,3 +27,9 @@ export function addToScore(){
     type: types.ADD_TO_SCORE
   }
 }
+
+export function restartTrivia(){
+  return {
+    type: types.RESTART_TRIVIA
+  }
+}

@@ -1,5 +1,5 @@
 import { put, takeEvery, call, all } from 'redux-saga/effects';
-import fetch from 'isomorphic-fetch';
+import fetch from 'fetch-everywhere';
 import * as types from '../actions/types';
 
 export function* fetchData(action) {

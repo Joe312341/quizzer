@@ -29,6 +29,12 @@ export default function triviaReducer(state = initialState, action){
         ...state,
         playerScore: state.playerScore + 1
       }
+    case types.RESTART_TRIVIA:
+      return {
+        ...state,
+        triviaState: false,
+        playerScore: 0
+      }
     case types.SELECT_NUMBER_OF_QUESTIONS:
       return {
         ...state,

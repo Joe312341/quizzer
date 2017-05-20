@@ -4,3 +4,4 @@ export const FETCH_SUCCEEDED = 'FETCH_SUCCEEDED';
 export const FETCH_FAILED = 'FETCH_FAILED';
 export const FETCH_REQUESTED = 'FETCH_REQUESTED';
 export const ADD_TO_SCORE = 'ADD_TO_SCORE';
+export const RESTART_TRIVIA = 'RESTART_TRIVIA';
