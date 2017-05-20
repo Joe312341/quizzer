@@ -28,8 +28,3 @@ export default function* rootSaga() {
     watchFetchData()
   ])
 }
-// export function* fetchTriviaQuestionsWatcher({ difficulty, questionNumber}) {
-// yield put( actions.requestsTriviaQuestions({ difficulty, questionNumber}) )
-//  const triviaQuestions = yield call(fetchTriviaQuestions, { difficulty, questionNumber})
-//  yield put( actions.receivePosts(reddit, posts) )
-// }

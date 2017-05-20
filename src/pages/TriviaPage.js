@@ -19,7 +19,6 @@ class TriviaPage extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        <Text>Triva!</Text>
         { this.props.loadingQuestions ?
           <View>
             <Text>Loading...</Text>
