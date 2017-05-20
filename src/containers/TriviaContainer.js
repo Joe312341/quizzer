@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // components
-import TriviaSelectionPage from '../pages/TriviaSelectionPage';
+import TriviaPage from '../pages/TriviaPage';
 //actions
 import * as actions from '../actions';
 
-class TriviaSelectionContainer extends React.Component {
+class TriviaContainer extends React.Component {
+  static navigationOptions = {
+    title: 'Trivia',
+  }
   constructor(props){
     super(props);
     this.state = {
@@ -25,29 +28,41 @@ class TriviaSelectionContainer extends React.Component {
     let boundActions = bindActionCreators(actions, this.props.dispatch);
 
     return (
-      <TriviaSelectionPage
+      <TriviaPage
         actions={boundActions}
         navigation={this.props.navigation}
         numberOfQuestions={this.props.numberOfQuestions}
         difficulty={this.props.difficulty}
         difficultyLevels={this.props.difficultyLevels}
+        loadingQuestions={this.props.loadingQuestions}
+        triviaState={this.props.triviaState}
+        triviaQuestions={this.props.triviaQuestions}
+        playerScore={this.props.playerScore}
       />
     )
   }
 }
 
-TriviaSelectionContainer.propTypes = {
+TriviaContainer.propTypes = {
   navigation: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   difficulty: PropTypes.string.isRequired, // easy, medium, hard (add later)
   numberOfQuestions: PropTypes.number.isRequired,
   difficultyLevels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  loadingQuestions: PropTypes.bool.isRequired,
+  triviaState: PropTypes.bool.isRequired,
+  triviaQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  playerScore: PropTypes.number.isRequired
 }
 
 const mapStateToProps = (state) => ({
   numberOfQuestions: state.trivia.numberOfQuestions,
   difficulty: state.trivia.difficulty,
-  difficultyLevels: state.trivia.difficultyLevels
+  difficultyLevels: state.trivia.difficultyLevels,
+  loadingQuestions: state.trivia.loadingQuestions,
+  triviaState: state.trivia.triviaState,
+  triviaQuestions: state.trivia.triviaQuestions,
+  playerScore: state.trivia.playerScore
 })
 
-export default connect(mapStateToProps)(TriviaSelectionContainer)
+export default connect(mapStateToProps)(TriviaContainer)

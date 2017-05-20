@@ -5,7 +5,9 @@ const initialState = {
   difficulty: 'easy',
   difficultyLevels: ['easy', 'medium', 'hard', 'mix'],
   loadingQuestions: false,
-  triviaQuestions: {}
+  triviaQuestions: [],
+  triviaState: false, // when this state is active trivia view is used
+  playerScore: 0
 }
 
 export default function triviaReducer(state = initialState, action){
@@ -19,7 +21,13 @@ export default function triviaReducer(state = initialState, action){
       return {
         ...state,
         triviaQuestions: action.data,
-        loadingQuestions: false
+        loadingQuestions: false,
+        triviaState: true,
+      }
+    case types.ADD_TO_SCORE:
+      return {
+        ...state,
+        playerScore: state.playerScore + 1
       }
     case types.SELECT_NUMBER_OF_QUESTIONS:
       return {

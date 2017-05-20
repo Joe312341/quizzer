@@ -1,23 +1,20 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
-import { View, Text, Button, Picker, Slider } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Text, Picker, Slider, Button } from 'react-native';
+
 //utilities
 import { capitalizeString } from '../utilities/stringHelpers';
 
-class TriviaSelectionPage extends React.Component {
+class TriviaSelectionComponent extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+
     }
-    this.goToDetailPage = this.goToDetailPage.bind(this);
-  }
-  goToDetailPage(){
-    this.props.navigation.dispatch({ type: 'DetailPage' });
   }
   render(){
     return (
       <View>
-        <Text>Triva!</Text>
         <Text>Select the difficulty level!</Text>
         <Picker
           selectedValue={this.props.difficulty}
@@ -39,18 +36,16 @@ class TriviaSelectionPage extends React.Component {
           onValueChange={(value) => this.props.actions.selectNumberOfQuestions(value)}
         />
         <Button onPress={() => this.props.actions.requestFetch(this.props.difficulty, this.props.numberOfQuestions)} title="Start!" />
-        <Button onPress={this.goToDetailPage} title="To DetailPage" />
       </View>
     )
   }
 }
 
-TriviaSelectionPage.propTypes = {
-  navigation: PropTypes.object.isRequired,
+TriviaSelectionComponent.propTypes = {
   actions: PropTypes.object.isRequired,
   difficulty: PropTypes.string.isRequired,
   numberOfQuestions: PropTypes.number.isRequired,
   difficultyLevels: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
-export default TriviaSelectionPage;
+export default TriviaSelectionComponent;

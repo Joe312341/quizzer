@@ -13,7 +13,7 @@ export function* fetchData(action) {
 }
 
 export function fetchTriviaQuestions({ difficulty, questionNumber }) {
-  return fetch(`https://opentdb.com/api.php?amount=${questionNumber}&difficulty=${difficulty}`)
+  return fetch(`https://opentdb.com/api.php?amount=${questionNumber}&difficulty=${difficulty}&type=multiple`)
               .then(response => response.json())
               .then(json => json.results.map(child => child))
 }

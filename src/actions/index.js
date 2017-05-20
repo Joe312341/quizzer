@@ -21,3 +21,9 @@ export function requestFetch(difficulty, questionNumber){
     questionNumber
   }
 }
+
+export function addToScore(){
+  return {
+    type: types.ADD_TO_SCORE
+  }
+}

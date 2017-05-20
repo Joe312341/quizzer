@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 // components
-import TriviaSelectionContainer from '../containers/TriviaSelectionContainer';
+import TriviaContainer from '../containers/TriviaContainer';
 import DetailPage from '../pages/DetailPage';
 
 export const AppNavigator = StackNavigator({
-  MasterPage: { screen: TriviaSelectionContainer },
+  MasterPage: { screen: TriviaContainer },
   DetailPage: { screen: DetailPage } // replace with a container depending of the detail page function
 });
 
