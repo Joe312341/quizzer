@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
 // components
 import TriviaComponent from '../components/TriviaComponent';
@@ -18,10 +18,10 @@ class TriviaPage extends React.Component {
   }
   render(){
     return (
-      <View style={styles.container}>
+      <View style={styles.triviaContainer}>
         { this.props.loadingQuestions ?
-          <View>
-            <Text>Loading...</Text>
+          <View style={styles.loader}>
+            <ActivityIndicator />
           </View>
           : this.props.triviaState ?
             <TriviaComponent
@@ -36,16 +36,20 @@ class TriviaPage extends React.Component {
               numberOfQuestions={this.props.numberOfQuestions}
               difficultyLevels={this.props.difficultyLevels}
             />
-          }
-        <Button onPress={this.goToDetailPage} title="To DetailPage" />
+            }
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  triviaContainer: {
     flex: 1
+  },
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 

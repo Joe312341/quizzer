@@ -3,6 +3,9 @@ import { PropTypes } from 'prop-types';
 import { View, Text, Button } from 'react-native';
 
 class DetailPage extends React.Component {
+  static navigationOptions = {
+    title: 'My Scores',
+  }
   constructor(props){
     super(props);
     this.state = {
