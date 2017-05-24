@@ -6,41 +6,28 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import TriviaComponent from '../components/TriviaComponent';
 import TriviaSelectionComponent from '../components/TriviaSelectionComponent';
 
-class TriviaPage extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-    }
-    this.goToDetailPage = this.goToDetailPage.bind(this);
-  }
-  goToDetailPage(){
-    this.props.navigation.dispatch({ type: 'DetailPage' });
-  }
-  render(){
-    return (
-      <View style={styles.triviaContainer}>
-        { this.props.loadingQuestions ?
-          <View style={styles.loader}>
-            <ActivityIndicator />
-          </View>
-          : this.props.triviaState ?
-            <TriviaComponent
-              triviaQuestions={this.props.triviaQuestions}
-              actions={this.props.actions}
-              playerScore={this.props.playerScore}
-            />
-            :
-            <TriviaSelectionComponent
-              actions={this.props.actions}
-              difficulty={this.props.difficulty}
-              numberOfQuestions={this.props.numberOfQuestions}
-              difficultyLevels={this.props.difficultyLevels}
-            />
-            }
+const TriviaPage = ({ loadingQuestions, triviaState, triviaQuestions, actions, playerScore, difficulty, numberOfQuestions, difficultyLevels }) => (
+  <View style={styles.triviaContainer}>
+    { loadingQuestions ?
+      <View style={styles.loader}>
+        <ActivityIndicator />
       </View>
-    )
-  }
-}
+      : triviaState ?
+        <TriviaComponent
+          triviaQuestions={triviaQuestions}
+          actions={actions}
+          playerScore={playerScore}
+        />
+      :
+        <TriviaSelectionComponent
+          actions={actions}
+          difficulty={difficulty}
+          numberOfQuestions={numberOfQuestions}
+          difficultyLevels={difficultyLevels}
+        />
+      }
+  </View>
+)
 
 const styles = StyleSheet.create({
   triviaContainer: {
@@ -54,7 +41,6 @@ const styles = StyleSheet.create({
 })
 
 TriviaPage.propTypes = {
-  navigation: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
   difficulty: PropTypes.string.isRequired,
   numberOfQuestions: PropTypes.number.isRequired,
@@ -62,7 +48,7 @@ TriviaPage.propTypes = {
   loadingQuestions: PropTypes.bool.isRequired,
   triviaState: PropTypes.bool.isRequired,
   triviaQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
-  playerScore: PropTypes.number.isRequired
+  playerScore: PropTypes.number.isRequired,
 }
 
 export default TriviaPage;

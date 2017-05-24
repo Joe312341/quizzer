@@ -26,11 +26,9 @@ class TriviaContainer extends React.Component {
     // our child component does not know about redux, therefore we bind actions and send them as props
     // instead of giving the child access to the dispatch function
     let boundActions = bindActionCreators(actions, this.props.dispatch);
-
     return (
       <TriviaPage
         actions={boundActions}
-        navigation={this.props.navigation}
         numberOfQuestions={this.props.numberOfQuestions}
         difficulty={this.props.difficulty}
         difficultyLevels={this.props.difficultyLevels}
@@ -44,7 +42,6 @@ class TriviaContainer extends React.Component {
 }
 
 TriviaContainer.propTypes = {
-  navigation: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired,
   difficulty: PropTypes.string.isRequired, // easy, medium, hard (add later)
   numberOfQuestions: PropTypes.number.isRequired,
@@ -52,7 +49,7 @@ TriviaContainer.propTypes = {
   loadingQuestions: PropTypes.bool.isRequired,
   triviaState: PropTypes.bool.isRequired,
   triviaQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
-  playerScore: PropTypes.number.isRequired
+  playerScore: PropTypes.number.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -62,7 +59,9 @@ const mapStateToProps = (state) => ({
   loadingQuestions: state.trivia.loadingQuestions,
   triviaState: state.trivia.triviaState,
   triviaQuestions: state.trivia.triviaQuestions,
-  playerScore: state.trivia.playerScore
+  playerScore: state.trivia.playerScore,
+  fetchFailed: state.trivia.fetchFailed,
+  errorMessage: state.trivia.errorMessage
 })
 
 export default connect(mapStateToProps)(TriviaContainer)

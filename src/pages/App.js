@@ -8,18 +8,20 @@ import AppHeader from '../components/AppHeader';
 import TriviaContainer from '../containers/TriviaContainer';
 import DetailPage from '../pages/DetailPage';
 
-export const AppNavigator = TabNavigator({
-  MasterPage: { screen: TriviaContainer },
-  DetailPage: { screen: DetailPage } // replace with a container depending of the detail page function
-},{
-  tabBarOptions: {
-    activeTintColor: 'black',
-    labelStyle: {
-      fontSize: 18,
-    },
-    style: {
-      backgroundColor: 'powderblue',
-    }
+export const AppNavigator = TabNavigator(
+  {
+    MasterPage: { screen: TriviaContainer },
+    DetailPage: { screen: DetailPage } // replace with a container depending of the detail page function
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'black',
+      labelStyle: {
+        fontSize: 18,
+      },
+      style: {
+        backgroundColor: 'powderblue',
+      }
   }
 });
 

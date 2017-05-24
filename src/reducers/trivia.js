@@ -1,7 +1,7 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  numberOfQuestions: 0,
+  numberOfQuestions: 1,
   difficulty: 'easy',
   difficultyLevels: ['easy', 'medium', 'hard', 'mix'],
   loadingQuestions: false,
@@ -23,6 +23,11 @@ export default function triviaReducer(state = initialState, action){
         triviaQuestions: action.data,
         loadingQuestions: false,
         triviaState: true,
+      }
+    case types.FETCH_FAILED:
+      return {
+        ...state,
+        loadingQuestions: false,
       }
     case types.ADD_TO_SCORE:
       return {
