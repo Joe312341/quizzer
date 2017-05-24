@@ -1,12 +1,15 @@
+// This component controlls the logic for the Trivia portion of the app,
+// The trivia is either 'in progress' or 'finished', represented by two different presentational components
 import React from 'react';
 import PropTypes from 'prop-types'
-import { View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
+import { View } from 'react-native';
+
 // utilities
 import { shuffleArray } from '../utilities/arrayHelpers';
 
 // components
 import TriviaFinishedComponent from '../components/TriviaFinishedComponent';
-
+import TriviaInProgressComponent from '../components/TriviaInProgressComponent';
 // we use local state in this component because these states are not use anywhere else and nothing derives from them
 // see http://redux.js.org/docs/faq/OrganizingState.html#organizing-state-only-redux-state
 class TriviaComponent extends React.Component {
@@ -82,69 +85,20 @@ class TriviaComponent extends React.Component {
             handleOnPress={this.props.actions.restartTrivia}
           />
         :
-          <View>
-            <Text>{`${this.state.currentQuestionIndex + 1} / ${this.props.triviaQuestions.length}`}</Text>
-            <Text>Category: {currentQuestion.category}</Text>
-            <View style={styles.questionArea}>
-              <Text>{currentQuestion.question}</Text>
-            </View>
-            <View>
-              { this.answers.map((answer) => {
-                return (
-                  <TouchableOpacity
-                    key={answer.answerText}
-                    disabled={this.state.answeredState}
-                    onPress={() => !this.state.answeredState && this.changeToAnsweredStateAndAddScore(answer.isCorrect)}
-                    style={this.state.answeredState && answer.isCorrect ? styles.correctAnswerTile : styles.answerTile}
-                    activeOpacity={0.5}
-                  >
-                    <Text>{answer.answerText}</Text>
-                  </TouchableOpacity>
-                )
-              })}
-              {this.state.answeredState &&
-              <Button
-                onPress={() => this.nextQuestionOrFinish()}
-                title="Next Question"
-                color="#841584"
-              />}
-            </View>
-          </View>
+          <TriviaInProgressComponent
+            currentQuestion={currentQuestion}
+            questionProgress={`${this.state.currentQuestionIndex + 1} / ${this.props.triviaQuestions.length}`}
+            answers={this.answers}
+            answeredState={this.state.answeredState}
+            onNextQuestion={this.nextQuestionOrFinish}
+            onChangeAnswerStateAndScore={this.changeToAnsweredStateAndAddScore}
+          />
         }
       </View>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  answerTile: {
-    height: 50,
-    backgroundColor: 'powderblue',
-    borderColor: '#000033',
-    borderWidth: 1,
-    margin: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  correctAnswerTile: {
-    height: 50,
-    backgroundColor: '#85d826',
-    borderColor: 'red',
-    borderWidth: 1,
-    margin: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  questionArea: {
-    height: 100,
-    backgroundColor: '#cddc39',
-    borderColor: '#000033',
-    borderWidth: 1,
-    margin: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 TriviaComponent.propTypes = {
   triviaQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
   actions: PropTypes.object.isRequired,

@@ -1,45 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Picker, Slider, Button } from 'react-native';
+import { View, Text, Picker, Slider, Button, StyleSheet } from 'react-native';
 
 //utilities
 import { capitalizeString } from '../utilities/stringHelpers';
 
-class TriviaSelectionComponent extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
+const TriviaSelectionComponent = ({ difficulty, difficultyLevels, actions, numberOfQuestions }) => (
+  <View>
+    <Text style={styles.labelText}>Welcome to the Trivia App. Select the difficulty level and the number of questions to start playing!</Text>
+    <Picker
+      selectedValue={difficulty}
+      onValueChange={(newDifficulty) => actions.selectDifficulty(newDifficulty)}
+    >
+      {difficultyLevels.map((difficultyLevel) => {
+        return (
+          <Picker.Item key={difficultyLevel} label={capitalizeString(difficultyLevel)} value={difficultyLevel} />
+        )
+      })}
+    </Picker>
+    <Text style={styles.labelText}>Select the number of questions</Text>
+    <Text style={styles.labelText}>Current Number of questions {numberOfQuestions}</Text>
+    <Slider
+      value={numberOfQuestions}
+      step={1}
+      minimumValue={1}
+      maximumValue={20}
+      onValueChange={(value) => actions.selectNumberOfQuestions(value)}
+    />
+    <Button onPress={() => actions.requestFetch(difficulty, numberOfQuestions)} title="Start!" />
+  </View>
+)
 
-    }
-  }
-  render(){
-    return (
-      <View>
-        <Text>Select the difficulty level!</Text>
-        <Picker
-          selectedValue={this.props.difficulty}
-          onValueChange={(difficulty) => this.props.actions.selectDifficulty(difficulty)}
-        >
-          {this.props.difficultyLevels.map((difficultyLevel) => {
-            return (
-              <Picker.Item key={difficultyLevel} label={capitalizeString(difficultyLevel)} value={difficultyLevel} />
-            )
-          })}
-        </Picker>
-        <Text>Select the number of questions</Text>
-        <Text>Current Number of questions {this.props.numberOfQuestions}</Text>
-        <Slider
-          value={this.props.numberOfQuestions}
-          step={1}
-          minimumValue={1}
-          maximumValue={20}
-          onValueChange={(value) => this.props.actions.selectNumberOfQuestions(value)}
-        />
-        <Button onPress={() => this.props.actions.requestFetch(this.props.difficulty, this.props.numberOfQuestions)} title="Start!" />
-      </View>
-    )
-  }
-}
+const styles = StyleSheet.create({
+  difficultyTile: {
+    backgroundColor: '#cddc39',
+  },
+  labelText: {
+    fontWeight: '300',
+    textAlign: 'center'
+  },
+})
 
 TriviaSelectionComponent.propTypes = {
   actions: PropTypes.object.isRequired,

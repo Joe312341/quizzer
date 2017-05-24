@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 const TriviaFinishedComponent = ({ playerScore, handleOnPress }) => (
-  <View>
-    <Text>Done!</Text>
+  <View style={styles.finishedTile}>
     <Text>{`Your score was ${playerScore}`}</Text>
+    <Text>Play again with different settings and new questions!</Text>
     <Button
       onPress={() => handleOnPress()}
       title="Again!"
@@ -13,6 +13,18 @@ const TriviaFinishedComponent = ({ playerScore, handleOnPress }) => (
     />
   </View>
 )
+
+const styles = StyleSheet.create({
+  finishedTile: {
+    height: 200,
+    backgroundColor: '#cddc39',
+    borderColor: '#000033',
+    borderWidth: 1,
+    margin: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 TriviaFinishedComponent.propTypes = {
   playerScore: PropTypes.number.isRequired,
