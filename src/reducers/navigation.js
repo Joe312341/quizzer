@@ -7,14 +7,14 @@ export default function navigationReducer(state, action) {
     case 'Back':
       nextState = AppNavigator.router.getStateForAction(NavigationActions.back(), state);
       break;
-    case 'MasterPage':
-      nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'MasterPage' }), state);
+    case 'TriviaScreen':
+      nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'TriviaScreen' }), state);
       break;
-    case 'DetailPage':
-      nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'DetailPage' }), state);
+    case 'ScoreboardScreen':
+      nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'ScoreboardScreen' }), state);
       break;
     default:
-      nextState = AppNavigator.router.getStateForAction(action, state);
+      nextState = AppNavigator.router.getStateForAction(action, state)
       break;
   }
   return nextState || state;

@@ -33,3 +33,25 @@ export function restartTrivia(){
     type: types.RESTART_TRIVIA
   }
 }
+
+export function writeToStore(score, difficulty, numberOfQuestions){
+  return {
+    type: types.WRITE_TO_STORAGE,
+    score,
+    difficulty,
+    numberOfQuestions
+  }
+}
+
+export function requestAllStorage(){
+  return {
+    type: types.REQUEST_STORAGE_DATA
+  }
+}
+
+export function setActiveRoute(bool){
+  return {
+    type: types.SET_ACTIVE_ROUTE,
+    bool
+  }
+}

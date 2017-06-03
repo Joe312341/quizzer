@@ -17,6 +17,7 @@ const TriviaPage = ({ loadingQuestions, triviaState, triviaQuestions, actions, p
           triviaQuestions={triviaQuestions}
           actions={actions}
           playerScore={playerScore}
+          difficulty={difficulty}
         />
       :
         <TriviaSelectionComponent

@@ -25,13 +25,17 @@ class TriviaComponent extends React.Component {
     this.changeToAnsweredStateAndAddScore = this.changeToAnsweredStateAndAddScore.bind(this);
   }
   componentWillMount(){
-    // you should use this to store things that should NOT trigger a rerender
+    // you should use this to store things that do NOT trigger a rerender
     // when we creata a new answer array and reshuffle it, we do not want to rerender the component
     this.answers = this.createAnswersArray(this.props.triviaQuestions[this.state.currentQuestionIndex])
   }
   componentWillUpdate(nextProps, nextState){
     if(this.state.currentQuestionIndex !== nextState.currentQuestionIndex){
       this.answers = this.createAnswersArray(this.props.triviaQuestions[nextState.currentQuestionIndex]);
+    }
+    if(this.state.triviaEnded === false && nextState.triviaEnded === true){
+      console.log('writing to realm')
+      this.props.actions.writeToStore(this.props.playerScore, this.props.difficulty, this.props.triviaQuestions.length)
     }
   }
   createAnswersArray(currentQuestion){
@@ -102,7 +106,8 @@ class TriviaComponent extends React.Component {
 TriviaComponent.propTypes = {
   triviaQuestions: PropTypes.arrayOf(PropTypes.object).isRequired,
   actions: PropTypes.object.isRequired,
-  playerScore: PropTypes.number.isRequired
+  playerScore: PropTypes.number.isRequired,
+  difficulty: PropTypes.string.isRequired
 }
 
 export default TriviaComponent;
