@@ -46,13 +46,15 @@ class ScoreboardPage extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        <Text style={styles.subTitle}>Your previous Scores</Text>
+        <Text style={styles.subTitle}>Your previous scores</Text>
         { this.props.pastScores.length !== 0 ?
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(data) => this.renderRow(data)}
           />
-        : <ActivityIndicator /> }
+        :
+          <Text>You have no previous scores</Text>
+        }
       </View>
     )
   }
@@ -63,10 +65,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   listViewItem: {
+    margin: 5,
     borderColor: '#000033',
-    borderWidth: 1,
-    borderStyle: 'dashed',
-    marginBottom: 5
+    borderBottomWidth: 1,
   },
   subTitle: {
     textAlign: 'center',
