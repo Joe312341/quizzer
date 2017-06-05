@@ -48,10 +48,3 @@ export function requestAllStorage(){
     type: types.REQUEST_STORAGE_DATA
   }
 }
-
-export function setActiveRoute(bool){
-  return {
-    type: types.SET_ACTIVE_ROUTE,
-    bool
-  }
-}

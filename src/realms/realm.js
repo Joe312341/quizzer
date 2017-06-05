@@ -12,4 +12,4 @@ TriviaGame.schema = {
   }
 }
 
-export default new Realm({ schema: [TriviaGame] })
+export default new Realm({ schema: [TriviaGame] });

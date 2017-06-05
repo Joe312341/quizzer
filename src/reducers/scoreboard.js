@@ -3,7 +3,6 @@ import * as types from '../actions/types'
 
 const initialState = {
   pastScores: [],
-  isActiveRoute: false,
 }
 export default function scoreboardReducer(state = initialState, action){
   switch (action.type) {
@@ -11,11 +10,6 @@ export default function scoreboardReducer(state = initialState, action){
       return {
         ...state,
         pastScores: action.data
-      }
-    case types.SET_ACTIVE_ROUTE:
-      return {
-        ...state,
-        isActiveRoute: action.bool
       }
     default:
       return state

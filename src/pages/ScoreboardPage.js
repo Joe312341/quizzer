@@ -1,8 +1,9 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { View, Text, Button, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { ListView } from 'realm/react-native';
 import { getCurrentRouteName } from '../utilities/routeHelpers';
+import realm from '../realms/realm';
 
 class ScoreboardPage extends React.Component {
   static navigationOptions = {
@@ -14,6 +15,10 @@ class ScoreboardPage extends React.Component {
     this.state = {
       dataSource: this.ds.cloneWithRows([]),
     };
+    // update store if realm changes
+    realm.addListener('change', () => {
+      this.props.actions.requestAllStorage()
+    });
   }
   componentWillMount(){
     this.props.actions.requestAllStorage()
@@ -21,6 +26,7 @@ class ScoreboardPage extends React.Component {
   componentWillReceiveProps(nextProps){
 
     const { index, routes } = nextProps.navigation;
+    // load realms when scoreboard screen is focused (navigated to)
     if(getCurrentRouteName(index, routes) === 'ScoreboardScreen'){
       this.setState({ dataSource: this.ds.cloneWithRows(nextProps.pastScores) })
     }
@@ -39,26 +45,31 @@ class ScoreboardPage extends React.Component {
   }
   render(){
     return (
-      <View>
-        <Text>ScoreboardPage</Text>
+      <View style={styles.container}>
+        <Text style={styles.subTitle}>Your previous Scores</Text>
         { this.props.pastScores.length !== 0 ?
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(data) => this.renderRow(data)}
           />
         : <ActivityIndicator /> }
-        <Button onPress={() => this.props.actions.requestAllStorage()} title="Request realms" />
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   listViewItem: {
     borderColor: '#000033',
     borderWidth: 1,
     borderStyle: 'dashed',
     marginBottom: 5
+  },
+  subTitle: {
+    textAlign: 'center',
   }
 })
 ScoreboardPage.propTypes = {

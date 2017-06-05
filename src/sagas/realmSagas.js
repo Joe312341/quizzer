@@ -2,6 +2,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 import * as types from '../actions/types';
 import realm from '../realms/realm';
 
+// write to realm method
 function writeToRealm(action) {
   realm.write(() => {
     realm.create('TriviaGame', {
@@ -13,7 +14,7 @@ function writeToRealm(action) {
   });
 }
 
-// request the realm object an make a copy
+// request the realm object and make a copy
 function* requestAllTriviaGames() {
   // true to sort in reverse
   const data = realm.objects('TriviaGame').sorted('createdAt', true)

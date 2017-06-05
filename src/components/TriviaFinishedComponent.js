@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const TriviaFinishedComponent = ({ playerScore, handleOnPress }) => (
+const TriviaFinishedComponent = ({ playerScore, numberOfTriviaQuestions, handleOnPress }) => (
   <View style={styles.finishedTile}>
-    <Text>{`Your score was ${playerScore}`}</Text>
+    <Text>{`Your score was ${playerScore} out of ${numberOfTriviaQuestions}`}</Text>
     <Text>Play again with different settings and new questions!</Text>
     <Button
       onPress={() => handleOnPress()}
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
 
 TriviaFinishedComponent.propTypes = {
   playerScore: PropTypes.number.isRequired,
+  numberOfTriviaQuestions: PropTypes.number.isRequired,
   handleOnPress: PropTypes.func.isRequired,
 }
 

@@ -20,7 +20,10 @@ function configureStore(initialState){
 }
 
 const store = configureStore({});
+
+// saga initialization
 sagaMiddleware.run(rootSaga)
+
 const AppContainer = () => (
   <Provider store={store}>
     <App />

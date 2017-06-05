@@ -34,7 +34,6 @@ class TriviaComponent extends React.Component {
       this.answers = this.createAnswersArray(this.props.triviaQuestions[nextState.currentQuestionIndex]);
     }
     if(this.state.triviaEnded === false && nextState.triviaEnded === true){
-      console.log('writing to realm')
       this.props.actions.writeToStore(this.props.playerScore, this.props.difficulty, this.props.triviaQuestions.length)
     }
   }
@@ -86,11 +85,13 @@ class TriviaComponent extends React.Component {
         { this.state.triviaEnded ?
           <TriviaFinishedComponent
             playerScore={this.props.playerScore}
+            numberOfTriviaQuestions={this.props.triviaQuestions.length}
             handleOnPress={this.props.actions.restartTrivia}
           />
         :
           <TriviaInProgressComponent
             currentQuestion={currentQuestion}
+            lastQuestion={this.state.currentQuestionIndex === this.props.triviaQuestions.length-1}
             questionProgress={`${this.state.currentQuestionIndex + 1} / ${this.props.triviaQuestions.length}`}
             answers={this.answers}
             answeredState={this.state.answeredState}

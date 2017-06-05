@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native';
 
-const TriviaInProgressComponent = ({ currentQuestion, questionProgress, answers, answeredState, onNextQuestion, onChangeAnswerStateAndScore }) => (
+const TriviaInProgressComponent = ({ currentQuestion, lastQuestion, questionProgress, answers, answeredState, onNextQuestion, onChangeAnswerStateAndScore }) => (
   <View>
     <View style={[styles.headerTile, styles.tile]}>
       <Text>Question: {questionProgress}</Text>
@@ -28,7 +28,7 @@ const TriviaInProgressComponent = ({ currentQuestion, questionProgress, answers,
       {answeredState &&
       <Button
         onPress={() => onNextQuestion()}
-        title="Next Question"
+        title={lastQuestion ? "Results" : "Next Question"}
         color="#841584"
       />}
     </View>
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
 
 TriviaInProgressComponent.propTypes = {
   currentQuestion: PropTypes.object.isRequired,
+  lastQuestion: PropTypes.bool.isRequired,
   questionProgress: PropTypes.string.isRequired,
   answers: PropTypes.arrayOf(PropTypes.object).isRequired,
   answeredState: PropTypes.bool.isRequired,
