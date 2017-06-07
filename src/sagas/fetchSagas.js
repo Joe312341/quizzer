@@ -1,6 +1,6 @@
+/*global fetch */
 import { Alert } from 'react-native';
 import { put, takeEvery, call } from 'redux-saga/effects';
-import fetch from 'fetch-everywhere';
 import * as types from '../actions/types';
 
 function* fetchData(action) {

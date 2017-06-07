@@ -1,0 +1,481 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders different picker state than initial state correctly 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Welcome to the Trivia App. Select the difficulty level and the number of questions to start playing!
+  </Text>
+  <View
+    style={undefined}
+  >
+    <RCTPicker
+      items={
+        Array [
+          Object {
+            "label": "Easy",
+            "textColor": undefined,
+            "value": "easy",
+          },
+          Object {
+            "label": "Medium",
+            "textColor": undefined,
+            "value": "medium",
+          },
+          Object {
+            "label": "Hard",
+            "textColor": undefined,
+            "value": "hard",
+          },
+          Object {
+            "label": "Mix",
+            "textColor": undefined,
+            "value": "mix",
+          },
+        ]
+      }
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      selectedIndex={0}
+      style={
+        Array [
+          Object {
+            "height": 216,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Select the number of questions
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Current Number of questions 
+    10
+  </Text>
+  <RCTSlider
+    disabled={false}
+    enabled={true}
+    maximumValue={20}
+    minimumValue={1}
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onSlidingComplete={undefined}
+    onStartShouldSetResponder={[Function]}
+    onValueChange={[Function]}
+    step={1}
+    style={
+      Array [
+        Object {
+          "height": 40,
+        },
+        undefined,
+      ]
+    }
+    value={10}
+  />
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#0C42FD",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Start!
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders different slider state than initial state correctly 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Welcome to the Trivia App. Select the difficulty level and the number of questions to start playing!
+  </Text>
+  <View
+    style={undefined}
+  >
+    <RCTPicker
+      items={
+        Array [
+          Object {
+            "label": "Easy",
+            "textColor": undefined,
+            "value": "easy",
+          },
+          Object {
+            "label": "Medium",
+            "textColor": undefined,
+            "value": "medium",
+          },
+          Object {
+            "label": "Hard",
+            "textColor": undefined,
+            "value": "hard",
+          },
+          Object {
+            "label": "Mix",
+            "textColor": undefined,
+            "value": "mix",
+          },
+        ]
+      }
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      selectedIndex={1}
+      style={
+        Array [
+          Object {
+            "height": 216,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Select the number of questions
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Current Number of questions 
+    1
+  </Text>
+  <RCTSlider
+    disabled={false}
+    enabled={true}
+    maximumValue={20}
+    minimumValue={1}
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onSlidingComplete={undefined}
+    onStartShouldSetResponder={[Function]}
+    onValueChange={[Function]}
+    step={1}
+    style={
+      Array [
+        Object {
+          "height": 40,
+        },
+        undefined,
+      ]
+    }
+    value={1}
+  />
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#0C42FD",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Start!
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders initial layout correctly 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Welcome to the Trivia App. Select the difficulty level and the number of questions to start playing!
+  </Text>
+  <View
+    style={undefined}
+  >
+    <RCTPicker
+      items={
+        Array [
+          Object {
+            "label": "Easy",
+            "textColor": undefined,
+            "value": "easy",
+          },
+          Object {
+            "label": "Medium",
+            "textColor": undefined,
+            "value": "medium",
+          },
+          Object {
+            "label": "Hard",
+            "textColor": undefined,
+            "value": "hard",
+          },
+          Object {
+            "label": "Mix",
+            "textColor": undefined,
+            "value": "mix",
+          },
+        ]
+      }
+      onChange={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      selectedIndex={0}
+      style={
+        Array [
+          Object {
+            "height": 216,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Select the number of questions
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "300",
+        "textAlign": "center",
+      }
+    }
+  >
+    Current Number of questions 
+    1
+  </Text>
+  <RCTSlider
+    disabled={false}
+    enabled={true}
+    maximumValue={20}
+    minimumValue={1}
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onSlidingComplete={undefined}
+    onStartShouldSetResponder={[Function]}
+    onValueChange={[Function]}
+    step={1}
+    style={
+      Array [
+        Object {
+          "height": 40,
+        },
+        undefined,
+      ]
+    }
+    value={1}
+  />
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#0C42FD",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Start!
+      </Text>
+    </View>
+  </View>
+</View>
+`;

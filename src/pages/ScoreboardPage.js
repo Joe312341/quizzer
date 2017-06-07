@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { ListView } from 'realm/react-native';
 import { getCurrentRouteName } from '../utilities/routeHelpers';
 import realm from '../realms/realm';
